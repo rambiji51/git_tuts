@@ -25,7 +25,7 @@ jobs:
       - name: Run script
         run: echo "Hello GitHub Actions!"
   build_lakshmi:
-    depends-on: build_ama
+  depends-on: build_ama
     runs-on: ubuntu-latest   # Runner
 
     steps:
