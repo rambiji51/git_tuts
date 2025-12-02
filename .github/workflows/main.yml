@@ -65,7 +65,7 @@ on: [push]
 
 jobs:
   build:
-    runs-on: fast-ubuntu
+    runs-on: [X64]
 
 
     steps:
