@@ -1,1 +1,16 @@
-Git hub tut
+name: My Workflow
+
+on: 
+  push:       # Trigger
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest   # Runner
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3   # Prebuilt action
+
+      - name: Run script
+        run: echo "Hello GitHub Actions!"
