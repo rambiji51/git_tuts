@@ -1,60 +1,75 @@
 
+# # name: My Workflow
+
+# # on: 
+# #   push:       # Trigger
+# #   pull_request:
+
+# # jobs:
+# #   build_ama:
+# #     needs: build_ram  # Correct dependency
+# #     runs-on: ubuntu-latest   # Runner
+
+# #     steps:
+# #       - name: Checkout code
+# #         uses: actions/checkout@v3   # Prebuilt action
+
+# #       - name: Run script
+# #         run: echo "Hello GitHub Actions!"
+# #   build_ram:
+# #     runs-on: ubuntu-latest   # Runner
+
+# #     steps:
+# #       - name: Amar
+# #         uses: actions/checkout@v3   # Prebuilt action
+
+# #       - name: Run script
+# #         run: echo "Hello ram prasad reddy!"
+# #   build_lakshmi:
+# #     needs: build_ama   # Correct dependency
+# #     runs-on: ubuntu-latest   # Runner
+
+# #     steps:
+# #       - name: Checkout code
+# #         uses: actions/checkout@v3   # Prebuilt action
+
+# #       - name: Run script
+# #         run: echo "Hello GitHub Actions!"
+
 # name: My Workflow
 
-# on: 
-#   push:       # Trigger
+# on:
+#   push:
 #   pull_request:
 
 # jobs:
-#   build_ama:
-#     needs: build_ram  # Correct dependency
-#     runs-on: ubuntu-latest   # Runner
+#   build_all:
+#     runs-on: ubuntu-latest
+
+#     strategy:
+#       matrix:
+#         person: [ama, ram, lakshmi]
 
 #     steps:
 #       - name: Checkout code
-#         uses: actions/checkout@v3   # Prebuilt action
+#         uses: actions/checkout@v3
 
 #       - name: Run script
-#         run: echo "Hello GitHub Actions!"
-#   build_ram:
-#     runs-on: ubuntu-latest   # Runner
-
-#     steps:
-#       - name: Amar
-#         uses: actions/checkout@v3   # Prebuilt action
-
-#       - name: Run script
-#         run: echo "Hello ram prasad reddy!"
-#   build_lakshmi:
-#     needs: build_ama   # Correct dependency
-#     runs-on: ubuntu-latest   # Runner
-
-#     steps:
-#       - name: Checkout code
-#         uses: actions/checkout@v3   # Prebuilt action
-
-#       - name: Run script
-#         run: echo "Hello GitHub Actions!"
+#         run: |
+#           echo "This job is for: ${{ matrix.person }}"
+#           echo "Hello GitHub Actions from ${{ matrix.person }}!"
 
 name: My Workflow
 
-on:
-  push:
-  pull_request:
+on: [push]
 
 jobs:
-  build_all:
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        person: [ama, ram, lakshmi]
+  build:
+    runs-on: self-hosted
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
       - name: Run script
-        run: |
-          echo "This job is for: ${{ matrix.person }}"
-          echo "Hello GitHub Actions from ${{ matrix.person }}!"
+        run: echo "Running on Ubuntu self-hosted runner!"
