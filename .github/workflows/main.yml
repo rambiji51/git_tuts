@@ -7,6 +7,7 @@ on:
 
 jobs:
   build_ama:
+    needs: build_ram  # Correct dependency
     runs-on: ubuntu-latest   # Runner
 
     steps:
@@ -16,7 +17,6 @@ jobs:
       - name: Run script
         run: echo "Hello GitHub Actions!"
   build_ram:
-    needs: build_lakshmi  # Correct dependency
     runs-on: ubuntu-latest   # Runner
 
     steps:
