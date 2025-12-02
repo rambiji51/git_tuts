@@ -24,3 +24,12 @@ jobs:
 
       - name: Run script
         run: echo "Hello GitHub Actions!"
+  build_lakshmi:
+    runs-on: ubuntu-latest   # Runner
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3   # Prebuilt action
+
+      - name: Run script
+        run: echo "Hello GitHub Actions!"
