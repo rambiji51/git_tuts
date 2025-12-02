@@ -2,35 +2,25 @@
 name: My Workflow
 
 on: 
-  push:
+  push:       # Trigger
   pull_request:
 
 jobs:
+  build_ama:
+    runs-on: ubuntu-latest   # Runner
 
-build:
-    runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v3   # Prebuilt action
 
-      - name: Build Job Script
-        run: echo "ram and amar !"
+      - name: Run script
+        run: echo "Hello GitHub Actions!"
+  build_ram:
+    runs-on: ubuntu-latest   # Runner
 
-  ram:
-    runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - name: Amar
+        uses: actions/checkout@v3   # Prebuilt action
 
-      - name: Ram Job Script
-        run: echo "Hello from Ram prasad!"
-
-  amar:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Amar Job Script
-        run: echo "Hello from Amar!"
-
+      - name: Run script
+        run: echo "Hello GitHub Actions!"
