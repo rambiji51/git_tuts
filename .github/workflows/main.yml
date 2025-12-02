@@ -57,4 +57,4 @@ jobs:
       - name: Run script
         run: |
           echo "This job is for: ${{ matrix.person }}"
-          echo "Hello GitHub Actions from ${ { matrix.person } }!"
+          echo "Hello GitHub Actions from ${{ matrix.person }}!"
