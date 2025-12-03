@@ -1,0 +1,25 @@
+name: My Workflow
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest     # Ubuntu runner
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Run a simple command
+        run: echo "Hello from Ubuntu GitHub Actions Runner!"
+
+      - name: Install dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y curl
+
+      - name: Run a script
+        run: |
+          echo "This is an example script running on Ubuntu!"
