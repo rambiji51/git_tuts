@@ -1,0 +1,17 @@
+name: Multi Person Job
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        person: [ram, amar, vamsi]
+
+    steps:
+      - name: Greet person
+        run: echo "This job is for: ${matrix.person}"
