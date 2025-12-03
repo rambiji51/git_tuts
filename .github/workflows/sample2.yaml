@@ -8,10 +8,6 @@ jobs:
   greet:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        person: [ram, amar, vamsi]
-
     steps:
       - name: Greet person
-        run: echo "This job is for: ${matrix.person}"
+        run: echo "This job "
